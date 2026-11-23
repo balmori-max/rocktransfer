@@ -1,10 +1,10 @@
-# RockSync
+# RockTransfer
 
 **Sync music to your Rockbox iPod from a Mac — no iTunes, no Music app, no duplicates.**
 
-![RockSync](art/hero.png)
+![RockTransfer](art/hero.png)
 
-RockSync is a small menu-bar app for iPods running [Rockbox](https://www.rockbox.org). Plug the iPod in and the window opens by itself:
+RockTransfer is a small menu-bar app for iPods running [Rockbox](https://www.rockbox.org). Plug the iPod in and the window opens by itself:
 
 - **Shows what's on the iPod** — free space, music / photos / videos / other.
 - **Copies only what's new.** Songs are matched by their *content* (SHA-256), not by file name, so `Song (1).mp3` or a renamed file never gets copied twice.
@@ -21,14 +21,14 @@ RockSync is a small menu-bar app for iPods running [Rockbox](https://www.rockbox
 
 ## Download & install
 
-1. Download **[RockSync.zip](https://github.com/balmori-max/rocksync/releases/latest/download/RockSync.zip)** and double-click it.
-2. Drag **RockSync.app** into your **Applications** folder.
+1. Download **[RockTransfer.zip](https://github.com/balmori-max/rocktransfer/releases/latest/download/RockTransfer.zip)** and double-click it.
+2. Drag **RockTransfer.app** into your **Applications** folder.
 3. Open it. macOS will say it *can't verify the developer* (the app is free and not paid-signed by Apple). Click **Done**, then:
-   - Open **System Settings › Privacy & Security**, scroll down and click **Open Anyway** next to “RockSync was blocked”.
+   - Open **System Settings › Privacy & Security**, scroll down and click **Open Anyway** next to “RockTransfer was blocked”.
    - Confirm with **Open Anyway** and your password. You only do this once.
 
-   *Terminal alternative:* `xattr -dr com.apple.quarantine /Applications/RockSync.app`
-4. RockSync appears in the **menu bar** (top right) and will open at login. Plug in your iPod.
+   *Terminal alternative:* `xattr -dr com.apple.quarantine /Applications/RockTransfer.app`
+4. RockTransfer appears in the **menu bar** (top right) and will open at login. Plug in your iPod.
 
 Requires macOS 14 (Sonoma) or newer. Works on Apple silicon and Intel Macs.
 
@@ -45,10 +45,10 @@ Menu bar options: theme, music folder, *Remove duplicate songs automatically*, *
 
 ## Uninstall
 
-Quit RockSync from the menu bar, then delete `/Applications/RockSync.app`. To also remove its fingerprint cache:
+Quit RockTransfer from the menu bar, then delete `/Applications/RockTransfer.app`. To also remove its fingerprint cache:
 
 ```bash
-rm -rf ~/Library/Application\ Support/RockSync
+rm -rf ~/Library/Application\ Support/RockTransfer
 ```
 
 ## Build from source
@@ -59,12 +59,14 @@ Only the Xcode Command Line Tools are needed (`xcode-select --install`):
 ./build.sh
 ```
 
-The app ends up in `build/RockSync.app` (universal binary) and `build/RockSync.zip`.
+The app ends up in `build/RockTransfer.app` (universal binary) and `build/RockTransfer.zip`.
 
 ## Notes
 
+- Formerly called *RockSync*; renamed so it doesn't clash with [stormy's RockSync](https://git.0stormy.xyz/stormy/RockSync), which had the name first.
+
 - Tested on an iPod classic (6G/7G) with Rockbox 4.0. Any Rockbox device that mounts as a disk with a `.rockbox` folder should work.
-- Fingerprints are cached in `~/Library/Application Support/RockSync`, so only the first comparison is slow.
+- Fingerprints are cached in `~/Library/Application Support/RockTransfer`, so only the first comparison is slow.
 - Not affiliated with Apple or the Rockbox project. iPod is a trademark of Apple Inc.
 
 ## License

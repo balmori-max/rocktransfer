@@ -127,7 +127,7 @@ final class HashIndex {
 
     static var supportDir: URL {
         let d = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("RockSync", isDirectory: true)
+            .appendingPathComponent("RockTransfer", isDirectory: true)
         try? FileManager.default.createDirectory(at: d, withIntermediateDirectories: true)
         return d
     }

@@ -1,14 +1,14 @@
 #!/bin/zsh
-# Builds RockSync.app as a universal app (Apple silicon + Intel). Needs only the Xcode Command Line Tools.
+# Builds RockTransfer.app as a universal app (Apple silicon + Intel). Needs only the Xcode Command Line Tools.
 set -e
 cd "$(dirname "$0")"
-APP="build/RockSync.app"
-VERSION="${VERSION:-1.0}"
+APP="build/RockTransfer.app"
+VERSION="${VERSION:-1.1}"
 rm -rf build && mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" build/obj
 for arch in arm64 x86_64; do
-  swiftc -O -swift-version 5 -parse-as-library -target $arch-apple-macos14.0 Sources/*.swift -o build/obj/RockSync-$arch
+  swiftc -O -swift-version 5 -parse-as-library -target $arch-apple-macos14.0 Sources/*.swift -o build/obj/RockTransfer-$arch
 done
-lipo -create build/obj/RockSync-arm64 build/obj/RockSync-x86_64 -output "$APP/Contents/MacOS/RockSync"
+lipo -create build/obj/RockTransfer-arm64 build/obj/RockTransfer-x86_64 -output "$APP/Contents/MacOS/RockTransfer"
 
 # Icon + artwork, drawn by the app's own views
 swiftc -O -swift-version 5 -parse-as-library Sources/Engine.swift Sources/Model.swift Sources/Theme.swift Sources/Views.swift Tools/render.swift -o build/obj/render
@@ -25,10 +25,10 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key><string>RockSync</string>
-  <key>CFBundleDisplayName</key><string>RockSync</string>
-  <key>CFBundleIdentifier</key><string>io.github.balmori-max.rocksync</string>
-  <key>CFBundleExecutable</key><string>RockSync</string>
+  <key>CFBundleName</key><string>RockTransfer</string>
+  <key>CFBundleDisplayName</key><string>RockTransfer</string>
+  <key>CFBundleIdentifier</key><string>io.github.balmori-max.rocktransfer</string>
+  <key>CFBundleExecutable</key><string>RockTransfer</string>
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
@@ -44,5 +44,5 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 </plist>
 PLIST
 codesign --force --deep --sign - "$APP"
-(cd build && ditto -c -k --keepParent RockSync.app RockSync.zip)
-echo "OK: $APP  and  build/RockSync.zip"
+(cd build && ditto -c -k --keepParent RockTransfer.app RockTransfer.zip)
+echo "OK: $APP  and  build/RockTransfer.zip"

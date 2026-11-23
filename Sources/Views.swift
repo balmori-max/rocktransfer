@@ -119,7 +119,7 @@ struct RootView: View {
             // Barra de título (los botones rojo/amarillo/verde los pone macOS)
             HStack {
                 Spacer()
-                Text("ROCKSYNC").font(.system(size: 11, design: .monospaced)).tracking(1.5).foregroundStyle(t.muted)
+                Text("ROCKTRANSFER").font(.system(size: 11, design: .monospaced)).tracking(1.5).foregroundStyle(t.muted)
                 Spacer()
             }
             .frame(height: 40)
@@ -191,7 +191,7 @@ struct WaitingView: View {
             Text(L("Conecta tu iPod con Rockbox", "Plug in your Rockbox iPod")).font(.system(size: 24, weight: .heavy))
             Text(L("Esta ventana se abrirá sola cuando aparezca en la Mac.", "This window opens by itself when it shows up on your Mac."))
                 .font(.system(size: 13)).foregroundStyle(m.theme.muted)
-            Text(L("RockSync vive en la barra de menú (arriba a la derecha).", "RockSync lives in the menu bar (top right)."))
+            Text(L("RockTransfer vive en la barra de menú (arriba a la derecha).", "RockTransfer lives in the menu bar (top right)."))
                 .font(.system(size: 12)).foregroundStyle(m.theme.muted)
             Spacer()
         }
@@ -347,7 +347,7 @@ struct RemovedListView: View {
         let t = m.theme
         VStack(alignment: .leading, spacing: 12) {
             Text(L("Copias repetidas que quité", "Duplicate copies removed")).font(.system(size: 18, weight: .bold))
-            Text(L("Siempre se conservó una copia de cada canción. Esta lista también queda guardada en ~/Library/Application Support/RockSync/removed-duplicates.json", "One copy of every song was always kept. This list is also saved in ~/Library/Application Support/RockSync/removed-duplicates.json"))
+            Text(L("Siempre se conservó una copia de cada canción. Esta lista también queda guardada en ~/Library/Application Support/RockTransfer/removed-duplicates.json", "One copy of every song was always kept. This list is also saved in ~/Library/Application Support/RockTransfer/removed-duplicates.json"))
                 .font(.system(size: 12)).foregroundStyle(t.muted)
             List(m.lastRemoved) { r in
                 VStack(alignment: .leading, spacing: 2) {

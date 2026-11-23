@@ -29,8 +29,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
         }
 
         status = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        let img = NSImage(systemSymbolName: "ipod", accessibilityDescription: "RockSync")
-            ?? NSImage(systemSymbolName: "music.note", accessibilityDescription: "RockSync")
+        let img = NSImage(systemSymbolName: "ipod", accessibilityDescription: "RockTransfer")
+            ?? NSImage(systemSymbolName: "music.note", accessibilityDescription: "RockTransfer")
         img?.isTemplate = true
         status.button?.image = img
         let menu = NSMenu()
@@ -83,7 +83,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
                              backing: .buffered, defer: false)
             w.titlebarAppearsTransparent = true
             w.titleVisibility = .hidden
-            w.title = "RockSync"
+            w.title = "RockTransfer"
             w.isMovableByWindowBackground = true
             w.isReleasedWhenClosed = false
             w.contentView = NSHostingView(rootView: root)
@@ -115,7 +115,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
             i.isEnabled = false
             menu.addItem(i)
         }
-        menu.addItem(item(L("Abrir RockSync", "Open RockSync"), #selector(openWindow)))
+        menu.addItem(item(L("Abrir RockTransfer", "Open RockTransfer"), #selector(openWindow)))
         menu.addItem(.separator())
 
         let themes = NSMenu()
@@ -137,7 +137,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
         menu.addItem(.separator())
-        menu.addItem(item(L("Salir de RockSync", "Quit RockSync"), #selector(quit), key: "q"))
+        menu.addItem(item(L("Salir de RockTransfer", "Quit RockTransfer"), #selector(quit), key: "q"))
     }
 
     private func item(_ title: String, _ sel: Selector, key: String = "") -> NSMenuItem {

@@ -106,7 +106,7 @@ struct Hero: View {
             VStack(alignment: .leading, spacing: 22) {
                 HStack(spacing: 14) {
                     AppIcon().frame(width: 1024, height: 1024).scaleEffect(64.0 / 1024).frame(width: 64, height: 64)
-                    Text("RockSync").font(.system(size: 34, weight: .heavy)).foregroundStyle(.white)
+                    Text("RockTransfer").font(.system(size: 34, weight: .heavy)).foregroundStyle(.white)
                 }
                 Text("Sync music to your\nRockbox iPod.")
                     .font(.system(size: 62, weight: .heavy)).tracking(-1.5).foregroundStyle(.white).lineSpacing(-4)
